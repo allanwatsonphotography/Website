@@ -1,48 +1,334 @@
+# Allan Watson Photography — Homepage Build Plan
+
+This homepage design is intended to create a premium, dark, cinematic photography portfolio focused on Hawke’s Bay landscapes, nature, and astrophotography.
+
+## Design Direction
+
+* Dark, elegant, modern aesthetic
+* Large immersive photography
+* Minimal text
+* Sophisticated typography
+* Mobile-friendly responsive layout
+* Moody cinematic atmosphere
+
+---
+
+# Files You Will Need To Upload To GitHub
+
+Create an `images` folder in your repository and upload these images:
+
+```plaintext
+/images/logo.png
+/images/moon.jpg
+/images/waterfall.jpg
+/images/milkyway.jpg
+```
+
+Suggested mapping:
+
+* logo.png → your watermark/logo image
+* moon.jpg → Ahuriri moon image
+* waterfall.jpg → waterfall image
+* milkyway.jpg → Milky Way image
+
+---
+
+# Replace Your Current index.html With This
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background: #111;
-      color: white;
-      padding: 60px 20px;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #0070f3;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allan Watson Photography</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.7)),
+                url('images/milkyway.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 260px;
+            max-width: 80%;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4d4d4;
+        }
+
+        .intro {
+            max-width: 900px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 0 30px;
+        }
+
+        .intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .intro p {
+            line-height: 1.9;
+            color: #cfcfcf;
+            font-size: 1.05rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 40px 120px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            min-height: 420px;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 35px;
+        }
+
+        .overlay h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .overlay p {
+            color: #d4d4d4;
+            line-height: 1.7;
+        }
+
+        .gallery-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            padding: 0 20px 120px;
+        }
+
+        .gallery-strip img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        footer {
+            background: #050505;
+            padding: 80px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        footer h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 14px 24px;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: white;
+            color: black;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .tagline {
+                font-size: 0.85rem;
+                letter-spacing: 2px;
+            }
+
+            .intro h2,
+            footer h2 {
+                font-size: 2.2rem;
+            }
+
+            .feature-card {
+                min-height: 340px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <p>This is my first live website 🚀</p>
-    <a class="btn" href="#about">Learn More</a>
-  </header>
+    <section class="hero">
+        <img src="images/logo.png" alt="Allan Watson Photography Logo" class="logo">
 
-  <section id="about">
-    <h2>About</h2>
-    <p>This website is hosted for free using Netlify.</p>
-  </section>
+        <h1>Allan Watson Photography</h1>
+
+        <p class="tagline">
+            Capturing Hawke's Bay and Beyond
+        </p>
+    </section>
+
+    <section class="intro">
+        <h2>Landscape • Nature • Astrophotography</h2>
+
+        <p>
+            Through dramatic light, atmospheric landscapes, and the beauty of the night sky,
+            Allan Watson Photography captures the mood and character of Hawke’s Bay and beyond.
+            From cinematic coastlines and waterfalls to deep-space astrophotography, each image
+            is created to evoke a sense of place, wonder, and timelessness.
+        </p>
+    </section>
+
+    <section class="feature-grid">
+
+        <a href="#" class="feature-card">
+            <img src="images/waterfall.jpg" alt="Photography Gallery">
+
+            <div class="overlay">
+                <h3>Explore Gallery</h3>
+
+                <p>
+                    View a curated collection of protected landscape, nature, and astrophotography
+                    presented in a premium gallery experience.
+                </p>
+            </div>
+        </a>
+
+        <a href="#" class="feature-card">
+            <img src="images/moon.jpg" alt="Photography Products">
+
+            <div class="overlay">
+                <h3>Fine Art & Products</h3>
+
+                <p>
+                    Discover future collections including calendars, digital downloads,
+                    fine art prints, and special photography products.
+                </p>
+            </div>
+        </a>
+
+    </section>
+
+    <section class="gallery-strip">
+        <img src="images/milkyway.jpg" alt="Milky Way Photography">
+        <img src="images/moon.jpg" alt="Moon Photography">
+        <img src="images/waterfall.jpg" alt="Landscape Photography">
+    </section>
+
+    <footer>
+        <h2>Get In Touch</h2>
+
+        <div class="contact-links">
+            <a href="tel:0277264447">027 726 4447</a>
+
+            <a href="mailto:allanwatsonphotography@outlook.com">
+                allanwatsonphotography@outlook.com
+            </a>
+
+            <a href="https://instagram.com/allan39607" target="_blank">
+                Instagram
+            </a>
+        </div>
+
+        <div class="footer-note">
+            © Allan Watson Photography
+        </div>
+    </footer>
 
 </body>
 </html>

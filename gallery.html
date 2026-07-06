@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Allan Watson Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d0d;color:#fff;font-family:Montserrat,sans-serif}
+header{padding:40px 20px;text-align:center}
+.logo{width:220px;max-width:80%;margin-bottom:20px}
+a{color:#ddd;text-decoration:none}
+.back{display:inline-block;margin-bottom:25px;color:#bbb}
+h1{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300}
+.intro{max-width:850px;margin:20px auto 70px;line-height:1.8;color:#d0d0d0;padding:0 20px;text-align:center}
+.grid{max-width:1200px;margin:auto;padding:0 30px 80px;display:grid;gap:35px}
+.card{position:relative;display:block;min-height:420px;border-radius:18px;overflow:hidden}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.6s}
+.card:hover img{transform:scale(1.05)}
+.overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.15));display:flex;flex-direction:column;justify-content:flex-end;padding:35px}
+.overlay h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;margin-bottom:10px}
+.overlay p{line-height:1.7;color:#ddd}
+.overlay span{margin-top:20px;font-weight:500}
+footer{background:#050505;padding:60px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+.contact a{display:inline-block;margin:8px;padding:12px 20px;border:1px solid rgba(255,255,255,.2);border-radius:999px}
+.contact a:hover{background:#fff;color:#000}
+</style>
+</head>
+<body>
+<header>
+<a class="back" href="index.html">&larr; Back to Home</a><br>
+<img class="logo" src="logo.png" alt="Logo">
+<h1>The Gallery</h1>
+<div class="intro">
+A curated collection of landscapes captured throughout Hawke's Bay and beyond. Select a collection to begin exploring.
+</div>
+</header>
+
+<section class="grid">
+<a class="card" href="temata.html">
+<img src="temata-sunset.jpg" alt="Te Mata Series">
+<div class="overlay">
+<h2>Te Mata Series</h2>
+<p>A photographic journey through one of Hawke's Bay's most iconic landscapes, capturing changing light, seasons and atmosphere.</p>
+<span>Explore Collection →</span>
+</div>
+</a>
+
+<a class="card" href="waimarama.html">
+<img src="waimarama-winter.jpg" alt="Waimarama Series">
+<div class="overlay">
+<h2>Waimārama Series</h2>
+<p>From calm winter mornings to dramatic coastal storms, this collection explores the ever-changing beauty of Waimārama Beach.</p>
+<span>Explore Collection →</span>
+</div>
+</a>
+
+<a class="card" href="discover.html">
+<img src="sunflowers.jpg" alt="Discover Hawke's Bay">
+<div class="overlay">
+<h2>Discover Hawke's Bay</h2>
+<p>A growing collection celebrating the people, places and landscapes that make Hawke's Bay unique.</p>
+<span>Explore Collection →</span>
+</div>
+</a>
+</section>
+
+<footer>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.5rem;margin-bottom:20px;">Get In Touch</h2>
+<div class="contact">
+<a href="tel:0277264447">027 726 4447</a>
+<a href="mailto:allanwatsonphotography@outlook.com">Email</a>
+<a href="https://instagram.com/allan39607" target="_blank">Instagram</a>
+</div>
+</footer>
+</body>
+</html>

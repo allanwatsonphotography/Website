@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +24,25 @@
             overflow-x: hidden;
         }
 
+        /* ===== HERO =====
+           Two easy tweaks if Allan wants to fine-tune:
+             1) LIGHTNESS – lower the rgba(0,0,0,...) numbers to let more of the photo show through.
+                            Raise them if the text ever gets hard to read.
+             2) FRAMING   – change "center 40%" (the 40%) to move the photo up or down.
+                            A smaller number shows more of the top; a larger number shows more of the bottom.
+           The final "#0d0d0d" colour stop is what makes the photo fade smoothly into the
+           page background, so there's no hard line where the image ends. */
         .hero {
             height: 100vh;
             background:
-                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.7)),
-                url('BareMilky.jpg') center/cover no-repeat;
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.30) 0%,
+                    rgba(0, 0, 0, 0.22) 50%,
+                    rgba(0, 0, 0, 0.45) 80%,
+                    #0d0d0d 100%
+                ),
+                url('BareMilky.jpg') center 40% / cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -41,14 +56,6 @@
             max-width: 80%;
             margin-bottom: 30px;
             opacity: 0.95;
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
         }
 
         .tagline {
@@ -193,10 +200,6 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-
             .tagline {
                 font-size: 0.85rem;
                 letter-spacing: 2px;
@@ -216,9 +219,7 @@
 <body>
 
     <section class="hero">
-        <img src="logo.png" alt="Allan Watson Photography Logo" class="logo">
-
-        <h1>Allan Watson Photography</h1>
+        <img src="logo.png" alt="Allan Watson Photography" class="logo">
 
         <p class="tagline">
             Capturing Hawke's Bay and Beyond
